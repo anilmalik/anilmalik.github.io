@@ -1,0 +1,108 @@
+<html>
+<head>
+<script>
+function getNextDate(suggestDT) {
+	return suggestDT.getDate().toString().replace(/^(\d)$/,"0$1")+"-"+
+		(1+suggestDT.getMonth()).toString().replace(/^(\d)$/,"0$1")+"-"+
+		suggestDT.getFullYear()+" "+
+		suggestDT.getHours().toString().replace(/^(\d)$/,"0$1")+":"+
+		suggestDT.getMinutes().toString().replace(/^(\d)$/,"0$1")+":00";
+}
+function onClick() {
+	var idd = (localStorage.getItem("auto_id")||"426");
+	var id = prompt("Patient ID:", idd + "/2020/JKP");
+	suggestDT = new Date(parseInt(localStorage.getItem("auto_datetime"),10)||Date.now());
+	suggestDT.setMinutes(suggestDT.getMinutes()+5);
+	var next = getNextDate(suggestDT);
+	var datetime = prompt("DateTime:", next);
+	var d = new Date(...datetime.split(/[-:\s]/i).map((e,o,d)=>parseInt(0===o?d[2]:1===o?d[o]-1:2===o?d[0]:d[o],10)));
+	d.setMinutes(d.getMinutes()+5)
+	var test_date = getNextDate(d);
+	d.setMinutes(d.getMinutes()+5)
+	var result_date = getNextDate(d);
+	name=prompt("Patient Name:"),
+	age=prompt("Patient Age:"),
+	gender=prompt("Patient Gender:", "M"),
+	address=prompt("Patient Address:", "JANAKPURI RAPID"),
+	phone=prompt("Patient Phone:"),
+	bodyForm=new FormData;
+	bodyForm.append("patient_id",id),
+	bodyForm.append("sample_id",id),
+	bodyForm.append("patient_name",name),
+	bodyForm.append("address",address),
+	bodyForm.append("contact_number",phone),
+	bodyForm.append("age",age),
+	bodyForm.append("gender",gender),
+	bodyForm.append("sample_cdate",datetime),
+	bodyForm.append("sample_tdate",test_date),
+	bodyForm.append("sample_rdate",result_date),
+	bodyForm.append("email",""),
+	bodyForm.append("aadhar_number",""),
+	bodyForm.append("passport_number",""),
+	bodyForm.append("village_town",""),
+	bodyForm.append("patient_category","NCat8"),
+	bodyForm.append("age_in","Years"),
+	bodyForm.append("contact_number_belongs_to","patient"),
+	bodyForm.append("nationality","India"),
+	bodyForm.append("state","7"),
+	bodyForm.append("district","85"),
+	bodyForm.append("pincode",""),
+	bodyForm.append("aarogya_setu_app_downloaded","Yes"),
+	bodyForm.append("date_of_arrival_in_india",""),
+	bodyForm.append("quarantined","No"),
+	bodyForm.append("otp_verified_srf",""),
+	bodyForm.append("final_status",""),
+	bodyForm.append("sample_type","Nasopharyngeal swab"),
+	bodyForm.append("status","Asymptomatic"),
+	bodyForm.append("other_underlying_medical_conditions",""),
+	bodyForm.append("hospitalization_date",""),
+	bodyForm.append("hospital_state",""),
+	bodyForm.append("hospital_id",""),
+	bodyForm.append("doctor_mobile",""),
+	bodyForm.append("covid19_result_egene",""),
+	bodyForm.append("orf1b_confirmatory",""),
+	bodyForm.append("rdrp_confirmatory",""),
+	bodyForm.append("final_result_of_sample","Antigen Negative"),
+	bodyForm.append("inf_a",""),
+	bodyForm.append("pinf",""),
+	bodyForm.append("h_metapneumovirus",""),
+	bodyForm.append("other_test_conducted",""),
+	bodyForm.append("result_of_other_test",""),
+	bodyForm.append("date_of_onset_of_symptoms",""),
+	bodyForm.append("hospitalized","No"),
+	bodyForm.append("hospital_name",""),
+	bodyForm.append("hospital_district",""),
+	bodyForm.append("doctor_name",""),
+	bodyForm.append("doctor_email",""),
+	bodyForm.append("testing_kit_used","Ag-SD_Biosensor_Standard_Q_COVID-19_Ag_detection_kit"),
+	bodyForm.append("ct_value_screening",""),
+	bodyForm.append("ct_value_orf1b",""),
+	bodyForm.append("ct_value_rdrp",""),
+	bodyForm.append("repeat_sample","No"),
+	bodyForm.append("inf_b",""),
+	bodyForm.append("rsv",""),
+	bodyForm.append("adenovirus",""),
+	bodyForm.append("rhinovirus",""),
+	bodyForm.append("remarks",""),
+	bodyForm.append("srf_id",""),
+	bodyForm.append("page","add_record");
+	console.log(bodyForm);
+	[id,datetime,name,address,phone,age,gender].includes(null)||
+	fetch("https://cvstatus.icmr.gov.in/submit.php", { method:"POST", body:bodyForm })
+	.then(e=>e.text())
+	.then(e=>
+		{
+			localStorage.setItem("auto_id",parseInt(idd)+1),
+			localStorage.setItem("auto_datetime",
+				new Date(...datetime.split(/[-:\s]/i).map((e,o,d)=>parseInt(0===o?d[2]:1===o?d[o]-1:2===o?d[0]:d[o],10))).getTime()),
+			alert(e)
+		}
+	);
+}
+</script>
+</head>
+<body>
+<a href='javascript:onClick();'>ICMR NCat8</a>
+<br/>
+</body>
+</html>

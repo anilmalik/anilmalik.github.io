@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>icmr cat 8 entry</title>
+    <title>icmr cat 17 entry</title>
     <script>
       function getNextDate(e) {
         return (e.getDate().toString().replace(/^(\d)$/, "0$1") + "-" +
@@ -11,9 +11,9 @@
         );
       }
       function onClick(isPositive) {
-        alert(isPositive ? "Antigen Positive" : "Antigen Negative");
-        var e = localStorage.getItem("auto_id") || "426",
-            o = prompt("Patient ID:", e + "/2020/JKP");
+        //alert(isPositive ? "Antigen Positive" : "Antigen Negative");
+        var e = localStorage.getItem("auto_id") || "43",
+            o = prompt("Patient ID:", "MPS" + e);
         (suggestDT = new Date(parseInt(localStorage.getItem("auto_datetime"), 10) || Date.now())), suggestDT.setMinutes(suggestDT.getMinutes() + 5);
         var a = getNextDate(suggestDT),
             t = prompt("DateTime:", a),
@@ -25,7 +25,7 @@
         (name = prompt("Patient Name:")),
             (age = prompt("Patient Age:")),
             (gender = prompt("Patient Gender:", "M")),
-            (address = prompt("Patient Address:", "JANAKPURI RAPID")),
+            (address = prompt("Patient Address:", "SHUKER BAZAR")),
             (phone = prompt("Patient Phone:")),
             (bodyForm = new FormData()),
             bodyForm.append("patient_id", o),
@@ -42,12 +42,12 @@
             bodyForm.append("aadhar_number", ""),
             bodyForm.append("passport_number", ""),
             bodyForm.append("village_town", ""),
-            bodyForm.append("patient_category", "NCat8"),
+            bodyForm.append("patient_category", "NCat17"),
             bodyForm.append("age_in", "Years"),
             bodyForm.append("contact_number_belongs_to", "patient"),
             bodyForm.append("nationality", "India"),
             bodyForm.append("state", "7"),
-            bodyForm.append("district", "85"),
+            bodyForm.append("district", "84"),
             bodyForm.append("pincode", ""),
             bodyForm.append("aarogya_setu_app_downloaded", "Yes"),
             bodyForm.append("date_of_arrival_in_india", ""),
@@ -101,7 +101,7 @@
   </head>
   <body style="text-align:center">
     <h3>icmr cat 8 entry<h3><br/>
-    <a href='javascript:onclick(false);'>ICMR NCat8 negative</a>
-      <a href='javascript:onclick(true);'>ICMR NCat8 positive</a>
+    <a href='javascript:onclick(false);'>ICMR NCat17 negative</a>
+      <!--<a href='javascript:onclick(true);'>ICMR NCat8 positive</a>-->
   </body>
 </html>

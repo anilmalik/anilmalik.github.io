@@ -46,8 +46,8 @@
       }
       function onClick(isPositive) {
         // alert(isPositive ? "Antigen Positive" : "Antigen Negative");
-        var e = localStorage.getItem("auto_id") || "426",
-            o = prompt("Patient ID:", e + "/2020/JKP");
+        var e = localStorage.getItem("auto_id") || "10",
+            o = prompt("Patient ID:", "MPS" + e);
         (suggestDT = new Date(parseInt(localStorage.getItem("auto_datetime"), 10) || Date.now())), suggestDT.setMinutes(suggestDT.getMinutes() + 5);
         var a = getNextDate(suggestDT),
             t = prompt("DateTime:", a),

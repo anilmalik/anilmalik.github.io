@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>icmr cat 8 entry</title>
+    <title>ICMR cat 17 entry</title>
     <script>
       const Cookie = {
           get: name => {
@@ -23,8 +23,8 @@
 
               /*Finally, creating the key*/
               document.cookie = name + '=' + encodeURIComponent(value) + opts
-          },
-          delete: (name, opts) => Cookie.set(name, '', {'max-age': -1, ...opts}) 
+          }
+          //delete: (name, opts) => Cookie.set(name, '', {'max-age': -1, ...opts}) 
           // path & domain must match cookie being deleted 
       }
       function checkCookies() {
@@ -59,7 +59,7 @@
         (name = prompt("Patient Name:")),
             (age = prompt("Patient Age:")),
             (gender = prompt("Patient Gender:", "M")),
-            (address = prompt("Patient Address:", "JANAKPURI RAPID")),
+            (address = prompt("Patient Address:", "")),
             (phone = prompt("Patient Phone:")),
             (bodyForm = new FormData()),
             bodyForm.append("patient_id", o),
@@ -76,12 +76,12 @@
             bodyForm.append("aadhar_number", ""),
             bodyForm.append("passport_number", ""),
             bodyForm.append("village_town", ""),
-            bodyForm.append("patient_category", "NCat8"),
+            bodyForm.append("patient_category", "NCat17"),
             bodyForm.append("age_in", "Years"),
             bodyForm.append("contact_number_belongs_to", "patient"),
             bodyForm.append("nationality", "India"),
             bodyForm.append("state", "7"),
-            bodyForm.append("district", "85"),
+            bodyForm.append("district", "84"),
             bodyForm.append("pincode", ""),
             bodyForm.append("aarogya_setu_app_downloaded", "Yes"),
             bodyForm.append("date_of_arrival_in_india", ""),
@@ -89,39 +89,15 @@
             bodyForm.append("otp_verified_srf", ""),
             bodyForm.append("final_status", ""),
             bodyForm.append("sample_type", "Nasopharyngeal swab"),
-            bodyForm.append("status", "Asymptomatic"),
+            bodyForm.append("status", ""),
             bodyForm.append("other_underlying_medical_conditions", ""),
-            bodyForm.append("hospitalization_date", ""),
-            bodyForm.append("hospital_state", ""),
-            bodyForm.append("hospital_id", ""),
-            bodyForm.append("doctor_mobile", ""),
-            bodyForm.append("covid19_result_egene", ""),
-            bodyForm.append("orf1b_confirmatory", ""),
-            bodyForm.append("rdrp_confirmatory", ""),
-            bodyForm.append("final_result_of_sample", isPositive ? "Antigen Positive" : "Antigen Negative"),
-            bodyForm.append("inf_a", ""),
-            bodyForm.append("pinf", ""),
-            bodyForm.append("h_metapneumovirus", ""),
-            bodyForm.append("other_test_conducted", ""),
-            bodyForm.append("result_of_other_test", ""),
-            bodyForm.append("date_of_onset_of_symptoms", ""),
+            bodyForm.append("final_result_of_sample", "Antigen Negative"),
             bodyForm.append("hospitalized", "No"),
-            bodyForm.append("hospital_name", ""),
-            bodyForm.append("hospital_district", ""),
-            bodyForm.append("doctor_name", ""),
-            bodyForm.append("doctor_email", ""),
             bodyForm.append("testing_kit_used", "Ag-SD_Biosensor_Standard_Q_COVID-19_Ag_detection_kit"),
-            bodyForm.append("ct_value_screening", ""),
-            bodyForm.append("ct_value_orf1b", ""),
-            bodyForm.append("ct_value_rdrp", ""),
             bodyForm.append("repeat_sample", "No"),
-            bodyForm.append("inf_b", ""),
-            bodyForm.append("rsv", ""),
-            bodyForm.append("adenovirus", ""),
-            bodyForm.append("rhinovirus", ""),
-            bodyForm.append("remarks", ""),
             bodyForm.append("srf_id", ""),
-            bodyForm.append("page", "add_record"),
+            bodyForm.append("page", "add_record_antigen"),
+            bodyForm.append("date_of_onset_of_symptoms", ""),
             [o, t, name, address, phone, age, gender].includes(null) ||
                 fetch("https://cvstatus.icmr.gov.in/submit.php", { method: "POST", mode: "cors", credentials: "include", body: bodyForm })
                     .then((e) => e.text())
@@ -136,6 +112,6 @@
   <body style="text-align:center" onload="checkCookies()">
     <h3>icmr cat 8 entry<h3><br/>
     <a href='javascript:onClick(false);'>ICMR NCat8 -ve</a><br/><br/>
-      <a href='javascript:onClick(true);'>ICMR NCat8 +ve</a>
+      <!--<a href='javascript:onClick(true);'>ICMR NCat8 +ve</a>-->
   </body>
 </html>

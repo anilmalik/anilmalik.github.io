@@ -13,7 +13,7 @@
       function onClick(isPositive) {
         //alert(isPositive ? "Antigen Positive" : "Antigen Negative");
         var e = localStorage.getItem("auto_id") || "43",
-            o = prompt("Patient ID:", "MPS" + e);
+            o = prompt("Patient ID:", "DGDA4/SMS/" + e);
         (suggestDT = new Date(parseInt(localStorage.getItem("auto_datetime"), 10) || Date.now())), suggestDT.setMinutes(suggestDT.getMinutes() + 5);
         var a = getNextDate(suggestDT),
             t = prompt("DateTime:", a),
@@ -25,7 +25,7 @@
         (name = prompt("Patient Name:")),
             (age = prompt("Patient Age:")),
             (gender = prompt("Patient Gender:", "M")),
-            (address = prompt("Patient Address:", "SHUKER BAZAR")),
+            (address = prompt("Patient Address:", "RAPID")),
             (phone = prompt("Patient Phone:")),
             (bodyForm = new FormData()),
             bodyForm.append("patient_id", o),
@@ -55,7 +55,7 @@
             bodyForm.append("otp_verified_srf", ""),
             bodyForm.append("final_status", ""),
             bodyForm.append("sample_type", "Nasopharyngeal swab"),
-            bodyForm.append("status", "Asymptomatic"),
+            bodyForm.append("status", ""),
             bodyForm.append("other_underlying_medical_conditions", ""),
             bodyForm.append("hospitalization_date", ""),
             bodyForm.append("hospital_state", ""),

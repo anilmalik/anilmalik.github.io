@@ -11,7 +11,7 @@
         );
       }
       function onClick(isPositive) {
-        //alert(isPositive ? "Antigen Positive" : "Antigen Negative");
+        alert(isPositive ? "Antigen Positive" : "Antigen Negative");
         var e = localStorage.getItem("auto_id") || "2",
             o = prompt("Patient ID:", "MPVP" + e);
         (suggestDT = new Date(parseInt(localStorage.getItem("auto_datetime"), 10) || Date.now())), suggestDT.setMinutes(suggestDT.getMinutes() + 5);
@@ -25,7 +25,7 @@
         (name = prompt("Patient Name:")),
             (age = prompt("Patient Age:")),
             (gender = prompt("Patient Gender:", "M")),
-            (address = prompt("Patient Address:", "VISHWASH PARK")),
+            (address = prompt("Patient Address:", "VISHWASH PARK RAPID")),
             (phone = prompt("Patient Phone:")),
             (bodyForm = new FormData()),
             bodyForm.append("patient_id", o),

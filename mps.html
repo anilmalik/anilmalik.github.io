@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>icmr cat 17 entry</title>
+    <title>Mahendra Park icmr cat 17 entry</title>
     <script>
       function getNextDate(e) {
         return (e.getDate().toString().replace(/^(\d)$/, "0$1") + "-" +
@@ -13,7 +13,7 @@
       function onClick(isPositive) {
         //alert(isPositive ? "Antigen Positive" : "Antigen Negative");
         var e = localStorage.getItem("auto_id") || "43",
-            o = prompt("Patient ID:", "MPS" + e);
+            o = prompt("Patient ID:", "MPVP" + e);
         (suggestDT = new Date(parseInt(localStorage.getItem("auto_datetime"), 10) || Date.now())), suggestDT.setMinutes(suggestDT.getMinutes() + 5);
         var a = getNextDate(suggestDT),
             t = prompt("DateTime:", a),
@@ -101,7 +101,7 @@
   </head>
   <body style="text-align:center">
     <h3>icmr cat 17 entry<h3><br/>
-    <a href='javascript:onClick(false);'>ICMR NCat17 negative</a>
+    <a href='javascript:onClick(false);'>Mahendra Park ICMR NCat17 negative</a>
       <!--<a href='javascript:onclick(true);'>ICMR NCat8 positive</a>-->
   </body>
 </html>

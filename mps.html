@@ -13,7 +13,7 @@
       function onClick(isPositive) {
         alert(isPositive ? "Antigen Positive" : "Antigen Negative");
         var e = localStorage.getItem("auto_id") || "2",
-            o = prompt("Patient ID:", "MPVP" + e);
+            o = prompt("Patient ID:", "MPVSP" + e);
         (suggestDT = new Date(parseInt(localStorage.getItem("auto_datetime"), 10) || Date.now())), suggestDT.setMinutes(suggestDT.getMinutes() + 5);
         var a = getNextDate(suggestDT),
             t = prompt("DateTime:", a),

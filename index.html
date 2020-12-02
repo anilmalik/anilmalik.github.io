@@ -12,8 +12,8 @@
       }
       function onClick(isPositive) {
         //alert(isPositive ? "Antigen Positive" : "Antigen Negative");
-        var e = localStorage.getItem("auto_id") || "256",
-            o = prompt("Patient ID:", "DGDA4/DC/" + e);
+        var e = localStorage.getItem("auto_id") || "3942",
+            o = prompt("Patient ID:", "DGDA4/A/" + e);
         (suggestDT = new Date(parseInt(localStorage.getItem("auto_datetime"), 10) || Date.now())), suggestDT.setMinutes(suggestDT.getMinutes() + 5);
         var a = getNextDate(suggestDT),
             t = prompt("DateTime:", a),
@@ -101,7 +101,7 @@
   </head>
   <body style="text-align:center">
     <h3>icmr cat 17 entry<h3><br/>
-    <a href='javascript:onClick(false);'>ICMR NCat17 negative(-VE)</a><br/><br/>
-      <a href='javascript:onClick(true);'>ICMR NCat17 positive(+VE)</a>
+    <a href='javascript:onClick(false);'>ICMR NCat17 negative (-VE)</a><br/><br/>
+      <a href='javascript:onClick(true);'>ICMR NCat17 positive (+VE)</a>
   </body>
 </html>
